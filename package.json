@@ -190,5 +190,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "webpack-pwa-manifest": "^4.0.0"
   }
 }
