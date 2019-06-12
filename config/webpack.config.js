@@ -24,6 +24,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -303,6 +304,7 @@ module.exports = function(webpackEnv) {
               options: {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint'),
+
               },
               loader: require.resolve('eslint-loader'),
             },
@@ -338,6 +340,7 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
+
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
@@ -377,6 +380,7 @@ module.exports = function(webpackEnv) {
                 ],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
+
                 // If an error happens in a package, it's possible to be
                 // because it was compiled. Thus, we don't want the browser
                 // debugger to show the original code. Instead, the code
@@ -497,6 +501,9 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+      new ServiceWorkerWebpackPlugin({
+        entry: paths.appSwJS,
+      }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       isEnvProduction &&
