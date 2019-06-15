@@ -550,7 +550,7 @@ module.exports = function(webpackEnv) {
         ios: false,
         publicPath: null,
         includeDirectory: true,
-        filename: 'manifest.json',
+        filename: paths.appManifestJson,
         name: 'React PWA Benchmark',
         short_name: 'PWA Benchmark',
         description: 'It is benchmark for PWA.',
@@ -561,7 +561,7 @@ module.exports = function(webpackEnv) {
         theme_color: '#FFFFFF',
         icons: [
           {
-            src: path.resolve('src/images/favicon.png'),
+            src: path.resolve(paths.favicon),
             sizes: [96, 128, 144, 192, 256, 384, 512], // 144, 192, 512 sizes are required
             ios: false,
           },
