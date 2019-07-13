@@ -7,7 +7,7 @@ export default defineMessages({
     defaultMessage: 'Homepage',
   },
   welcome: {
-    id: 'home.welcome',
-    defaultMessage: 'Hello World!',
+    id: 'home.timer',
+    defaultMessage: 'Timer',
   },
 });

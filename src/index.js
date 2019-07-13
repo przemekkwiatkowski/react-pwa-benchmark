@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import runtime from 'serviceworker-webpack-plugin/lib/runtime';
+import firebase from 'firebase';
 
 // Needed for redux-saga es6 generator support
 
 import '@babel/polyfill';
+
 // Import all the third party stuff
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
@@ -14,6 +16,7 @@ import './theme/global';
 import configureStore from './modules/store';
 import UnsupportedBrowserDetection from './shared/utils/unsupportedBrowserDetection';
 import browserHistory from './shared/utils/history';
+import { config as firestoreConfig } from './firestore';
 
 if ('serviceWorker' in navigator) {
   runtime
@@ -21,6 +24,8 @@ if ('serviceWorker' in navigator) {
     .then(() => console.log('SW registered successfully.'))
     .catch(error => console.log('SW registration failed:', error));
 }
+
+firebase.initializeApp(firestoreConfig);
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
