@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import { Container } from './benchmark.styles';
 import { H2 } from '../../theme/typography';
+import { StartButton } from '../../shared/components/startButton';
 
 const Test = ({ history }) => {
   const goBack = () => history.goBack();
@@ -14,6 +15,7 @@ const Test = ({ history }) => {
         go back
       </button>
       <H2>Test</H2>
+      <StartButton />
     </Container>
   );
 };

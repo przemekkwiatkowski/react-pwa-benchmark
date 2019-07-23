@@ -8,6 +8,6 @@ export default defineMessages({
   },
   welcome: {
     id: 'home.welcome',
-    defaultMessage: 'React native benchmark',
+    defaultMessage: 'react pwa benchmark',
   },
 });
