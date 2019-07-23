@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './home.messages';
 import { Container, BenchmarksContainer } from './home.styles';
 import { H1 } from '../../theme/typography';
-import { BenchmarkTile } from '../../shared/components/testTile';
+import { BenchmarkTile } from '../../shared/components/benchmarkTile';
 
 export class Home extends PureComponent {
   static propTypes = {

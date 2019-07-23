@@ -1,8 +1,13 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  startButton: {
-    id: 'benchmark.startButton',
+  startBenchmark: {
+    id: 'benchmark.startBenchmark',
     defaultMessage: 'Start benchmark',
+  },
+
+  stopBenchmark: {
+    id: 'benchmark.stopBenchmark',
+    defaultMessage: 'Stop benchmark',
   },
 });

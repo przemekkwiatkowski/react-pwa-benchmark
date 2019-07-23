@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import { Container } from './benchmark.styles';
 import { H2 } from '../../theme/typography';
 import { StartButton } from '../../shared/components/startButton';
+import { SaveButton } from '../../shared/components/saveButton';
+import { AddSample } from '../../shared/components/addSample';
 
-const Benchmark = ({ history }) => {
-  const goBack = () => history.goBack();
+const Benchmark = props => {
+  const goBack = () => props.history.goBack();
 
   return (
     <Container>
@@ -15,11 +17,15 @@ const Benchmark = ({ history }) => {
       </button>
       <H2>Test</H2>
       <StartButton />
+      {props.isActive && props.startedAt && <AddSample />}
+      {props.isActive && <SaveButton />}
     </Container>
   );
 };
 
 Benchmark.propTypes = {
+  startedAt: PropTypes.string,
+  isActive: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,

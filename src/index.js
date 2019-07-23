@@ -14,6 +14,7 @@ import './theme/global';
 import configureStore from './modules/store';
 import UnsupportedBrowserDetection from './shared/utils/unsupportedBrowserDetection';
 import browserHistory from './shared/utils/history';
+import { initializeFirestore } from './shared/services/firestore';
 
 if ('serviceWorker' in navigator) {
   runtime
@@ -21,6 +22,8 @@ if ('serviceWorker' in navigator) {
     .then(() => console.log('SW registered successfully.'))
     .catch(error => console.log('SW registration failed:', error));
 }
+
+initializeFirestore();
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)

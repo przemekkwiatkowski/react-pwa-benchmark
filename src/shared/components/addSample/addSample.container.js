@@ -4,10 +4,11 @@ import { createStructuredSelector } from 'reselect';
 import { hot } from 'react-hot-loader';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'ramda';
-import { TimeTrackerActions } from '../../../modules/timeTracker/timeTracker.redux';
-import { selectIsActive } from '../../../modules/timeTracker/timeTracker.selectors';
 
-import StartButton from './startButton.component';
+import { selectIsActive } from '../../../modules/timeTracker/timeTracker.selectors';
+import { TimeTrackerActions } from '../../../modules/timeTracker/timeTracker.redux';
+
+import AddSample from './addSample.component';
 
 const mapStateToProps = createStructuredSelector({
   isActive: selectIsActive,
@@ -16,8 +17,7 @@ const mapStateToProps = createStructuredSelector({
 export const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      start: TimeTrackerActions.start,
-      stop: TimeTrackerActions.stop,
+      addSample: TimeTrackerActions.addSample,
     },
     dispatch
   );
@@ -29,4 +29,4 @@ export default compose(
     mapDispatchToProps
   ),
   withRouter
-)(StartButton);
+)(AddSample);

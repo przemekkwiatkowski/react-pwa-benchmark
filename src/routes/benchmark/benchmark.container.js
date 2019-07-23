@@ -6,8 +6,12 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'ramda';
 
 import Benchmark from './benchmark.component';
+import { selectIsActive, selectStartedAt } from '../../modules/timeTracker/timeTracker.selectors';
 
-const mapStateToProps = createStructuredSelector({});
+const mapStateToProps = createStructuredSelector({
+  isActive: selectIsActive,
+  startedAt: selectStartedAt,
+});
 
 export const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 

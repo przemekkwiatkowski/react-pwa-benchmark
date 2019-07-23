@@ -7,7 +7,7 @@ import { compose } from 'ramda';
 import { TimeTrackerActions } from '../../../modules/timeTracker/timeTracker.redux';
 import { selectIsActive } from '../../../modules/timeTracker/timeTracker.selectors';
 
-import StartButton from './startButton.component';
+import SaveButton from './saveButton.component';
 
 const mapStateToProps = createStructuredSelector({
   isActive: selectIsActive,
@@ -18,6 +18,7 @@ export const mapDispatchToProps = dispatch =>
     {
       start: TimeTrackerActions.start,
       stop: TimeTrackerActions.stop,
+      saveResult: TimeTrackerActions.saveResult,
     },
     dispatch
   );
@@ -29,4 +30,4 @@ export default compose(
     mapDispatchToProps
   ),
   withRouter
-)(StartButton);
+)(SaveButton);
