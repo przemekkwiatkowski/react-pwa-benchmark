@@ -3,7 +3,6 @@ import enLocaleData from 'react-intl/locale-data/en';
 import plLocaleData from 'react-intl/locale-data/pl';
 
 import enTranslationMessages from './translations/en.json';
-import plTranslationMessages from './translations/pl.json';
 
 addLocaleData(enLocaleData);
 addLocaleData(plLocaleData);
@@ -29,5 +28,4 @@ export const formatTranslationMessages = (locale, messages) => {
 
 export const translationMessages = {
   [LOCALES.ENGLISH]: formatTranslationMessages(LOCALES.ENGLISH, enTranslationMessages),
-  [LOCALES.POLISH]: formatTranslationMessages(LOCALES.POLISH, plTranslationMessages),
 };

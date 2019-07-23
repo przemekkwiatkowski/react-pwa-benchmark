@@ -8,8 +8,3 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
 `;
-
-export const Logo = styled(LogoSVG)`
-  width: 100px;
-  margin-bottom: 20px;
-`;
