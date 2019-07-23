@@ -12,7 +12,6 @@ import { BenchmarkTile } from '../../shared/components/testTile';
 export class Home extends PureComponent {
   static propTypes = {
     intl: PropTypes.object.isRequired,
-    language: PropTypes.string.isRequired,
   };
 
   render() {

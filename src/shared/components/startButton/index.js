@@ -1,1 +1,1 @@
-export { default as StartButton } from './startButton.component';
+export { default as StartButton } from './startButton.container';

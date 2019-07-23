@@ -1,1 +1,1 @@
-export { default as Benchmark } from './benchmark.component';
+export { default as Benchmark } from './benchmark.container';

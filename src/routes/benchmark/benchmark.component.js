@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
 import { Container } from './benchmark.styles';
 import { H2 } from '../../theme/typography';
 import { StartButton } from '../../shared/components/startButton';
 
-const Test = ({ history }) => {
+const Benchmark = ({ history }) => {
   const goBack = () => history.goBack();
 
   return (
@@ -20,10 +19,10 @@ const Test = ({ history }) => {
   );
 };
 
-Test.propTypes = {
+Benchmark.propTypes = {
   history: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default withRouter(Test);
+export default Benchmark;
