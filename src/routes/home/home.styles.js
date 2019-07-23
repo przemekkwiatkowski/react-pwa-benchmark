@@ -10,7 +10,7 @@ export const Container = styled.div`
   text-align: center;
 `;
 
-export const TestsContainer = styled.div`
+export const BenchmarksContainer = styled.div`
   width: 100%;
   height: 70%;
   display: grid;

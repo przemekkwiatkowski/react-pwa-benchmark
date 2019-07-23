@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Tile } from './testTile.styles';
+import { Tile } from './benchmarkTile.styles';
 import { ROUTES } from '../../../routes/index';
 
-const TestTile = ({ title, link }) => {
+const BenchmarkTile = ({ title, link }) => {
   return (
     <Tile to={`${ROUTES.test}${link}`}>
       <span>{title}</span>
@@ -12,9 +12,9 @@ const TestTile = ({ title, link }) => {
   );
 };
 
-TestTile.propTypes = {
+BenchmarkTile.propTypes = {
   title: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
 };
 
-export default TestTile;
+export default BenchmarkTile;

@@ -1,1 +1,1 @@
-export { default as TestTile } from './testTile.component';
+export { default as BenchmarkTile } from './benchmarkTile.component';
