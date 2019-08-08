@@ -1,19 +1,19 @@
 import { createSelector } from 'reselect';
-import Immutable from 'seamless-immutable';
+import { prop } from 'ramda';
 
-const selectTimeTrackerDomain = state => state.timeTracker;
+const selectTimeTrackerDomain = prop('timeTracker');
 
 export const selectIsActive = createSelector(
   selectTimeTrackerDomain,
-  state => Immutable.getIn(state, ['isActive'], false)
+  prop('isActive')
 );
 
 export const selectStartedAt = createSelector(
   selectTimeTrackerDomain,
-  state => Immutable.getIn(state, ['startedAt'], 0)
+  prop('startedAt')
 );
 
 export const selectSamples = createSelector(
   selectTimeTrackerDomain,
-  state => Immutable.getIn(state, ['samples'], [])
+  prop('samples')
 );
