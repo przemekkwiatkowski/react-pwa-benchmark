@@ -38,6 +38,9 @@ export const Header = styled.header`
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 
   &::after {
     position: absolute;
@@ -61,4 +64,8 @@ export const Content = styled.section`
   flex: 1;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
 `;
