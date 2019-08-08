@@ -1,8 +1,8 @@
 export const colors = {
   white: '#ffffff',
   black: '#000000',
-  grey: '#cccccc',
-  greyDark: '#666666',
+  greyDark: '#5a5a5a',
+  greyLight: '#e0e0e0',
 };
 
 export const fonts = {
