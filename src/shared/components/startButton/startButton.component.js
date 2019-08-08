@@ -8,10 +8,11 @@ import { Button } from './startButton.styles';
 
 const StartButton = ({ isActive, start, stop }) => {
   const handleClick = () => (isActive ? stop() : start());
+  const buttonMessage = isActive ? messages.stopBenchmark : messages.startBenchmark;
 
   return (
     <Button type="button" onClick={handleClick}>
-      {isActive ? <FormattedMessage {...messages.stopBenchmark} /> : <FormattedMessage {...messages.startBenchmark} />}
+      <FormattedMessage {...buttonMessage} />
     </Button>
   );
 };
