@@ -19,16 +19,18 @@ const INITIAL_STATE = Immutable({
 });
 
 const start = state =>
-  state
-    .set('isActive', true)
-    .set('startedAt', String(Date.now()))
-    .set('samples', []);
+  state.merge({
+    isActive: true,
+    startedAt: '0',
+    samples: [],
+  });
 
 const stop = state =>
-  state
-    .set('isActive', false)
-    .set('startedAt', '0')
-    .set('samples', []);
+  state.merge({
+    isActive: false,
+    startedAt: '0',
+    samples: [],
+  });
 
 const addSample = state => state.set('samples', [...state.samples, { savedAt: String(Date.now()) }]);
 
