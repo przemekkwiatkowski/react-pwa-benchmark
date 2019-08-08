@@ -8,11 +8,13 @@ import { SaveButton } from '../../shared/components/saveButton';
 import { AddSample } from '../../shared/components/addSample';
 
 const Benchmark = props => {
-  const goBack = () => props.history.goBack();
+  const handleClick = () => {
+    props.history.goBack();
+  };
 
   return (
     <Container>
-      <button type="button" onClick={goBack}>
+      <button type="button" onClick={handleClick}>
         go back
       </button>
       <H2>Test</H2>
