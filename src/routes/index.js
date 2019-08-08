@@ -17,8 +17,8 @@ export default class RootContainer extends Component {
     return (
       <App>
         <Switch>
-          <Route exact path={`${ROUTES.home}`} component={Home} />
-          <Route path={`${ROUTES.test}`} component={Benchmark} />
+          <Route exact path={ROUTES.home} component={Home} />
+          <Route path={ROUTES.test} component={Benchmark} />
           <Route component={NotFound} />
         </Switch>
       </App>
