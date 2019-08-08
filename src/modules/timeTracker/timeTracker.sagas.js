@@ -9,7 +9,6 @@ export function* saveResult() {
     yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();
     yield db
-      .collection('pwa')
       .doc('benchmark-1')
       .collection('results')
       .add({

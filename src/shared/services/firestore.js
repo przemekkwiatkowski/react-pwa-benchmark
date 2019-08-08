@@ -9,8 +9,9 @@ export const config = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  collectionName: process.env.REACT_APP_COLLECTION_NAME,
 };
 
 export const initializeFirestore = () => firebase.initializeApp(config);
 
-export const getFirestore = firebase.firestore;
+export const getFirestore = () => firebase.firestore().collection(config.collectionName);
