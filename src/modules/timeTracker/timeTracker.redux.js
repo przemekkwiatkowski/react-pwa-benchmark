@@ -8,7 +8,7 @@ export const { Types: TimeTrackerTypes, Creators: TimeTrackerActions } = createA
     addSample: null,
     saveResult: ['result'],
   },
-  { prefix: 'TIME_TRACKER_' }
+  { prefix: 'TIME_TRACKER/' }
 );
 
 const INITIAL_STATE = Immutable({
