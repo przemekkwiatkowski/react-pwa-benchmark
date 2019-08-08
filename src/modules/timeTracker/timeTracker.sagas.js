@@ -1,8 +1,8 @@
 import { takeLatest, put } from 'redux-saga/effects';
 
 import { getFirestore } from '../../shared/services/firestore';
-import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 import reportError from '../../shared/utils/reportError';
+import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 
 export function* saveResult() {
   try {
