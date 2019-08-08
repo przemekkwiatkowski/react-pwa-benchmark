@@ -6,6 +6,7 @@ import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 
 export function* saveResult() {
   try {
+    yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();
     yield db
       .collection('pwa')
@@ -17,7 +18,6 @@ export function* saveResult() {
         duration: 20,
         samples: [25, 42, 73],
       });
-    yield put(TimeTrackerActions.stop());
   } catch (error) {
     reportError(error);
   }
