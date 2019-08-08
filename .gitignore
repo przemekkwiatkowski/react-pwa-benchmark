@@ -8,6 +8,7 @@ node_modules
 stats.json
 dist
 public/uploads/**
+.env.local
 
 # Cruft
 .DS_Store
