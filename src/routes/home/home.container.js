@@ -6,7 +6,7 @@ import { injectIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'ramda';
 
-import { Home } from './home.component';
+import Home from './home.component';
 
 const mapStateToProps = createStructuredSelector({});
 

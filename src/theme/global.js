@@ -47,17 +47,17 @@ export const Header = styled.header`
     display: block;
     height: 1px;
     width: 60%;
-    background-color: ${colors.greyLight};
+    background-color: ${colors.grey};
   }
 `;
 
-export const NavigationContainer = styled.header`
+export const NavigationContainer = styled.div`
   height: 15%;
   width: 100%;
   box-sizing: border-box;
 `;
 
-export const Content = styled.header`
+export const Content = styled.section`
   flex: 1;
   width: 100%;
   box-sizing: border-box;
