@@ -10,6 +10,7 @@ export const ROUTES = {
   home: '/home',
   notFound: '/404',
   benchmark: '/benchmark',
+  benchmarkId: '/benchmark/:id',
 };
 
 export default class RootContainer extends Component {
