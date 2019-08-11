@@ -8,15 +8,12 @@ export function* saveResult() {
   try {
     yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();
-    yield db
-      .doc('benchmark-1')
-      .collection('results')
-      .add({
-        benchmark: 1,
-        device: 'Samsung Galaxy S10',
-        duration: 20,
-        samples: [25, 42, 73],
-      });
+    yield db.doc('benchmark-1').add({
+      benchmark: 1,
+      device: 'Samsung Galaxy S10',
+      duration: 20,
+      samples: [25, 42, 73],
+    });
   } catch (error) {
     reportError(error);
   }
