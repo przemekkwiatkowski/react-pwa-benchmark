@@ -10,18 +10,12 @@ process.on('unhandledRejection', err => {
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
-
 const extractReactIntlMessages = require('extract-react-intl-messages');
 const paths = require('../config/paths');
 
 const languages = process.argv.slice(2);
 
-extractReactIntlMessages(
-  languages,
-  paths.appSrc + '/**/*.messages.js',
-  paths.translations,
-  {
-    format: 'json',
-    flat: true,
-  }
-);
+extractReactIntlMessages(languages, paths.appSrc + '/**/*.messages.js', paths.translations, {
+  format: 'json',
+  flat: true,
+});

@@ -8,9 +8,11 @@ export const Image = styled.div`
   height: 65px;
   transform: translateY(-10px);
   transition: transform 0.3s ease-in-out;
-  background-image: url('./images/benchmark.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+
+  img {
+    height: inherit;
+    width: inherit;
+  }
 `;
 
 export const Tile = styled(Link)`
