@@ -1,15 +1,15 @@
 import React from 'react';
 
+import { benchmarks } from '../../../content';
 import { Container } from './benchmarksContainer.styles';
 import { BenchmarkTile } from '../benchmarkTile';
 
 export const BenchmarksContainer = () => {
   return (
     <Container>
-      <BenchmarkTile title="Test 1" link="/1" />
-      <BenchmarkTile title="Test 2" link="/2" />
-      <BenchmarkTile title="Test 3" link="/3" />
-      <BenchmarkTile title="Test 4" link="/4" />
+      {benchmarks.map((benchmark, index) => {
+        return <BenchmarkTile title={benchmark.name} link={benchmark.url} key={index} />;
+      })}
     </Container>
   );
 };

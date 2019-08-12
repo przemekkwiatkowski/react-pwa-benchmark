@@ -11,7 +11,7 @@ export const Content = () => {
     <Container>
       <Switch>
         <Route exact path={ROUTES.base} component={BenchmarksContainer} />
-        <Route path={ROUTES.benchmarkId} component={Controls} />
+        <Route exact path={ROUTES.benchmarkId} component={Controls} />
       </Switch>
     </Container>
   );
