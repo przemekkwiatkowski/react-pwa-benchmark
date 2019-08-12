@@ -10,4 +10,8 @@ export default defineMessages({
     id: 'header.welcome',
     defaultMessage: 'react pwa benchmark',
   },
+  benchmarkSubtitle: {
+    id: 'header.benchmarkSubtitle',
+    defaultMessage: 'Benchmark',
+  },
 });

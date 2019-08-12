@@ -3,31 +3,46 @@ import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
+import { getBenchmarkData } from '../../../content';
 import { ROUTES } from '../../../routes';
 import messages from './header.messages';
 import { H1, H2 } from '../../../theme/typography';
 import { Navigation } from '../navigation';
-import { Container, HeaderContainer, NavigationContainer, NavigationBackIcon } from './header.styles';
+import reactImage from '../../../images/react.png';
+import benchmarkImage from '../../../images/benchmark.png';
+import { Container, HeaderContainer, NavigationContainer, NavigationBackIcon, Image } from './header.styles';
 
 export const Header = props => {
   const handleClick = () => {
-    props.history.goBack();
+    props.history.push(ROUTES.base);
   };
 
   const renderHomeHeader = () => {
     return (
-      <H1>
-        <FormattedMessage {...messages.welcome} />
-      </H1>
+      <>
+        <H1>
+          <FormattedMessage {...messages.welcome} />
+        </H1>
+        <Image>
+          <img src={reactImage} />
+        </Image>
+      </>
     );
   };
 
-  const renderBenchmarkHeader = () => {
+  const renderBenchmarkHeader = ({ match }) => {
+    const benchmark = getBenchmarkData(match.params.id)[0];
+    const header = benchmark.name.toLowerCase();
     return (
       <>
         <NavigationBackIcon onClick={handleClick} />
-        <H1>Title of the test</H1>
-        <H2>benchmark</H2>
+        <H1>{header}</H1>
+        <H2>
+          <FormattedMessage {...messages.benchmarkSubtitle} />
+        </H2>
+        <Image>
+          <img src={benchmarkImage} />
+        </Image>
       </>
     );
   };
@@ -36,9 +51,9 @@ export const Header = props => {
     <Container>
       <HeaderContainer>
         <Switch>
-          <Route path={ROUTES.benchmarkId} component={renderBenchmarkHeader} />
-          <Route path={ROUTES.home} component={renderHomeHeader} />
-          <Route exact path={ROUTES.base} component={renderHomeHeader} />
+          <Route path={`${ROUTES.benchmarkId}`} render={props => renderBenchmarkHeader(props)} />
+          <Route path={ROUTES.home} render={renderHomeHeader} />
+          <Route exact path={ROUTES.base} render={renderHomeHeader} />
         </Switch>
       </HeaderContainer>
       <NavigationContainer>
@@ -50,6 +65,11 @@ export const Header = props => {
 
 Header.propTypes = {
   history: PropTypes.shape({
-    goBack: PropTypes.func.isRequired,
+    push: PropTypes.func.isRequired,
   }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
 };

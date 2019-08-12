@@ -55,3 +55,15 @@ export const NavigationBackIcon = styled.button`
     top: 0;
   }
 `;
+
+export const Image = styled.div`
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  img {
+    width: inherit;
+    height: inherit;
+  }
+`;
