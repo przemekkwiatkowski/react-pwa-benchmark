@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { Container, List, ListItem, ItemLink } from './navigation.styles';
 
