@@ -5,9 +5,9 @@ import benchmarkIcon from '../../../images/benchmark.png';
 import { Tile, Title, Image } from './benchmarkTile.styles';
 import { ROUTES } from '../../../routes/index';
 
-const BenchmarkTile = ({ title, link }) => {
+export const BenchmarkTile = ({ title, link }) => {
   return (
-    <Tile to={`${ROUTES.test}${link}`}>
+    <Tile to={`${ROUTES.benchmark}${link}`}>
       <Image>
         <img src={benchmarkIcon} />
       </Image>
@@ -20,5 +20,3 @@ BenchmarkTile.propTypes = {
   title: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
 };
-
-export default BenchmarkTile;
