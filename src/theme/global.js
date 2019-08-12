@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     font-family: ${fonts.montserrat};
     font-size: 15px;
+    background-color: ${colors.whiteSmoke};
     
     #app {
       width: inherit;
@@ -31,41 +32,4 @@ export const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-`;
-
-export const Header = styled.header`
-  height: 25%;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-
-  &::after {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    width: 60%;
-    background-color: ${colors.grey};
-  }
-`;
-
-export const NavigationContainer = styled.div`
-  height: 15%;
-  width: 100%;
-  box-sizing: border-box;
-`;
-
-export const Content = styled.section`
-  flex: 1;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: center;
 `;
