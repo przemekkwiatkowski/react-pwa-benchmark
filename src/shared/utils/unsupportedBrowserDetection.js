@@ -61,6 +61,16 @@ const DEFAULT_SUPPORTED_BROWSERS_CONFIG = {
       browser: 'chrome',
       minversion: 50,
     },
+    {
+      os: 'android',
+      minos: '5.0',
+      browser: 'edge',
+    },
+    {
+      os: 'android',
+      minos: '5.0',
+      browser: 'firefox',
+    },
   ],
 };
 

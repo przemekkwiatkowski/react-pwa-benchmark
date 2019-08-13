@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
+import { startCameraBenchmark } from '../../utils/camera';
 import messages from './controls.messages';
 import { ControlButton } from '../controlButton';
 import { Container, StartButton, SampleButton, SaveButton } from './controls.styles';
@@ -10,7 +11,8 @@ export const Controls = memo(props => {
   const buttonMessage = isActive ? messages.stopBenchmark : messages.startBenchmark;
 
   const handleStartButton = () => {
-    isActive ? stop() : start(match.params.id);
+    // isActive ? stop() : start(match.params.id);
+    startCameraBenchmark();
   };
 
   const handleAddSampleButton = () => {
