@@ -1,18 +1,19 @@
-import React, { memo } from 'react';
+import React, { memo, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { startCameraBenchmark } from '../../utils/camera';
 import messages from './controls.messages';
 import { ControlButton } from '../controlButton';
-import { Container, StartButton, SampleButton, SaveButton } from './controls.styles';
+import { Container, StartButton, SampleButton, SaveButton, Video } from './controls.styles';
 
 export const Controls = memo(props => {
   const { match, start, stop, addSample, saveResult, isActive, benchmark, startedAt, samples, device } = props;
   const buttonMessage = isActive ? messages.stopBenchmark : messages.startBenchmark;
+  const video = useRef(null);
 
   const handleStartButton = () => {
     // isActive ? stop() : start(match.params.id);
-    startCameraBenchmark();
+    startCameraBenchmark(video.current);
   };
 
   const handleAddSampleButton = () => {
@@ -37,21 +38,24 @@ export const Controls = memo(props => {
   };
 
   return (
-    <Container>
-      <StartButton>
-        <ControlButton title={buttonMessage} primary onClick={handleStartButton} />
-      </StartButton>
-      {isActive && (
-        <SampleButton>
-          <ControlButton title={messages.addSample} onClick={handleAddSampleButton} />
-        </SampleButton>
-      )}
-      {isActive && (
-        <SaveButton>
-          <ControlButton title={messages.saveResult} onClick={handleSaveButton} />
-        </SaveButton>
-      )}
-    </Container>
+    <>
+      <Video ref={video} controls autoplay />
+      <Container>
+        <StartButton>
+          <ControlButton title={buttonMessage} primary onClick={handleStartButton} />
+        </StartButton>
+        {isActive && (
+          <SampleButton>
+            <ControlButton title={messages.addSample} onClick={handleAddSampleButton} />
+          </SampleButton>
+        )}
+        {isActive && (
+          <SaveButton>
+            <ControlButton title={messages.saveResult} onClick={handleSaveButton} />
+          </SaveButton>
+        )}
+      </Container>
+    </>
   );
 });
 

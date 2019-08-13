@@ -26,3 +26,9 @@ export const SaveButton = styled.div`
   top: 50%;
   transform: translateY(-50%);
 `;
+
+export const Video = styled.video`
+  width: 100%;
+  height: 80%;
+  border: 1px solid red;
+`;
