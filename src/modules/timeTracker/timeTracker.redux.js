@@ -12,6 +12,7 @@ export const { Types: TimeTrackerTypes, Creators: TimeTrackerActions } = createA
 );
 
 const INITIAL_STATE = Immutable({
+  benchmark: null,
   isActive: false,
   startedAt: '0',
   samples: [],
