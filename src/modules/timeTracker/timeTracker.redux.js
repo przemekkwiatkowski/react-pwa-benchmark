@@ -3,40 +3,42 @@ import Immutable from 'seamless-immutable';
 
 export const { Types: TimeTrackerTypes, Creators: TimeTrackerActions } = createActions(
   {
-    start: null,
+    start: ['benchmark'],
     stop: null,
+    reset: null,
     addSample: null,
-    saveResult: ['result'],
+    saveResult: ['benchmarkId', 'result'],
   },
   { prefix: 'TIME_TRACKER/' }
 );
 
 const INITIAL_STATE = Immutable({
-  benchmark: null,
   isActive: false,
-  startedAt: '0',
+  benchmark: null,
   samples: [],
-  duration: '0',
+  startedAt: 0,
 });
 
-const start = state =>
+const start = (state, benchmark) =>
   state.merge({
     isActive: true,
-    startedAt: '0',
+    benchmark: benchmark.benchmark,
+    startedAt: Date.now(),
     samples: [],
   });
 
 const stop = state =>
   state.merge({
     isActive: false,
-    startedAt: '0',
-    samples: [],
   });
 
-const addSample = state => state.set('samples', [...state.samples, { savedAt: String(Date.now()) }]);
+const addSample = state => state.set('samples', [...state.samples, { savedAt: Date.now() }]);
+
+const reset = () => INITIAL_STATE;
 
 export const reducer = createReducer(INITIAL_STATE, {
   [TimeTrackerTypes.START]: start,
   [TimeTrackerTypes.STOP]: stop,
   [TimeTrackerTypes.ADD_SAMPLE]: addSample,
+  [TimeTrackerTypes.RESET]: reset,
 });

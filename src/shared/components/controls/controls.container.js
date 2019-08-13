@@ -7,10 +7,20 @@ import { compose } from 'ramda';
 
 import { Controls } from './controls.component';
 import { TimeTrackerActions } from '../../../modules/timeTracker/timeTracker.redux';
-import { selectIsActive } from '../../../modules/timeTracker/timeTracker.selectors';
+import { selectDevice } from '../../../modules/startup';
+import {
+  selectIsActive,
+  selectStartedAt,
+  selectBenchmark,
+  selectSamples,
+} from '../../../modules/timeTracker/timeTracker.selectors';
 
 const mapStateToProps = createStructuredSelector({
   isActive: selectIsActive,
+  benchmark: selectBenchmark,
+  startedAt: selectStartedAt,
+  samples: selectSamples,
+  device: selectDevice,
 });
 
 export const mapDispatchToProps = dispatch =>
@@ -18,6 +28,7 @@ export const mapDispatchToProps = dispatch =>
     {
       start: TimeTrackerActions.start,
       stop: TimeTrackerActions.stop,
+      addSample: TimeTrackerActions.addSample,
       saveResult: TimeTrackerActions.saveResult,
     },
     dispatch

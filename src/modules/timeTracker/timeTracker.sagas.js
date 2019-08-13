@@ -4,19 +4,13 @@ import { getFirestore } from '../../shared/services/firestore';
 import reportError from '../../shared/utils/reportError';
 import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 
-export function* saveResult() {
+export function* saveResult(payload) {
+  const { benchmarkId, result } = payload;
   try {
     yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();
-    yield db
-      .doc('benchmark-1')
-      .collection('results')
-      .add({
-        benchmark: 1,
-        device: 'Samsung Galaxy S10',
-        duration: 20,
-        samples: [25, 42, 73],
-      });
+    yield db.collection(benchmarkId).add(result);
+    yield put(TimeTrackerActions.reset());
   } catch (error) {
     reportError(error);
   }
