@@ -8,6 +8,11 @@ export const selectIsActive = createSelector(
   prop('isActive')
 );
 
+export const selectBenchmark = createSelector(
+  selectTimeTrackerDomain,
+  prop('benchmark')
+);
+
 export const selectStartedAt = createSelector(
   selectTimeTrackerDomain,
   prop('startedAt')

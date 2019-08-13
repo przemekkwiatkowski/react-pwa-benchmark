@@ -7,11 +7,13 @@ import { Controls } from '../controls';
 import { Container } from './content.styles';
 
 export const Content = () => {
+  const renderControls = props => <Controls {...props} />;
+
   return (
     <Container>
       <Switch>
         <Route exact path={ROUTES.base} component={BenchmarksContainer} />
-        <Route exact path={ROUTES.benchmarkId} component={Controls} />
+        <Route exact path={ROUTES.benchmarkId} render={props => renderControls(props)} />
       </Switch>
     </Container>
   );
