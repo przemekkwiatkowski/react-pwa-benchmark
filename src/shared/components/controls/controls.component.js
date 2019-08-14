@@ -1,20 +1,47 @@
-import React, { memo, useRef } from 'react';
+import React, { memo, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { startCameraBenchmark } from '../../utils/camera';
 import messages from './controls.messages';
 import { ControlButton } from '../controlButton';
-import { Container, StartButton, SampleButton, SaveButton, Video } from './controls.styles';
+import {
+  Container,
+  StartButton,
+  SampleButton,
+  SaveButton,
+  CameraContainer,
+  Video,
+  Canvas,
+  StopButton,
+  CaptureButton,
+} from './controls.styles';
 
 export const Controls = memo(props => {
   const { match, start, stop, addSample, saveResult, isActive, benchmark, startedAt, samples, device } = props;
   const buttonMessage = isActive ? messages.stopBenchmark : messages.startBenchmark;
   const video = useRef(null);
+  const canvas = useRef(null);
+  // const context = canvas.getContext('2d');
+
+  useEffect(() => {
+    console.log(video, canvas);
+  }, [video, canvas]);
 
   const handleStartButton = () => {
-    // isActive ? stop() : start(match.params.id);
-    startCameraBenchmark(video.current);
+    if (isActive) {
+      stop();
+    } else {
+      start(match.params.id);
+      startCameraBenchmark(video.current);
+    }
   };
+
+  const handleStopButton = () => stop();
+
+  // const handleCaptureButton = () => {
+  //   context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  //   video.srcObject.getVideoTracks().forEach(track => track.stop());
+  // };
 
   const handleAddSampleButton = () => {
     if (isActive && startedAt) {
@@ -39,7 +66,16 @@ export const Controls = memo(props => {
 
   return (
     <>
-      <Video ref={video} controls autoplay />
+      <CameraContainer isActive={isActive}>
+        <Video ref={video} autoplay />
+        <Canvas ref={canvas} width="100vw" height="100vh" />
+        <StopButton>
+          <ControlButton primary title={messages.stopBenchmark} onClick={handleStopButton} />
+        </StopButton>
+        <CaptureButton>
+          <ControlButton primary title={messages.capture} onClick={handleStopButton} />
+        </CaptureButton>
+      </CameraContainer>
       <Container>
         <StartButton>
           <ControlButton title={buttonMessage} primary onClick={handleStartButton} />

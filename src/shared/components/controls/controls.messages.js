@@ -20,4 +20,9 @@ export default defineMessages({
     id: 'benchmark.saveResult',
     defaultMessage: 'Save',
   },
+
+  capture: {
+    id: 'benchmark.capture',
+    defaultMessage: 'capture',
+  },
 });
