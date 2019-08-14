@@ -21,27 +21,26 @@ export const Controls = memo(props => {
   const buttonMessage = isActive ? messages.stopBenchmark : messages.startBenchmark;
   const video = useRef(null);
   const canvas = useRef(null);
-  // const context = canvas.getContext('2d');
+  let context;
 
   useEffect(() => {
-    console.log(video, canvas);
-  }, [video, canvas]);
+    context = canvas.current.getContext('2d');
+  });
 
   const handleStartButton = () => {
     if (isActive) {
       stop();
     } else {
       start(match.params.id);
-      startCameraBenchmark(video.current);
+      startCameraBenchmark(video.current, canvas.current);
     }
   };
 
   const handleStopButton = () => stop();
 
-  // const handleCaptureButton = () => {
-  //   context.drawImage(video, 0, 0, canvas.width, canvas.height);
-  //   video.srcObject.getVideoTracks().forEach(track => track.stop());
-  // };
+  const handleCaptureButton = () => {
+    // context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  };
 
   const handleAddSampleButton = () => {
     if (isActive && startedAt) {
@@ -67,13 +66,13 @@ export const Controls = memo(props => {
   return (
     <>
       <CameraContainer isActive={isActive}>
-        <Video ref={video} controls autoplay />
+        <Video ref={video} autoplay />
         <Canvas ref={canvas} width="100vw" height="100vh" />
         <StopButton>
           <ControlButton primary title={messages.stopBenchmark} onClick={handleStopButton} />
         </StopButton>
         <CaptureButton>
-          <ControlButton primary title={messages.capture} onClick={handleStopButton} />
+          <ControlButton primary title={messages.capture} onClick={handleCaptureButton} />
         </CaptureButton>
       </CameraContainer>
       <Container>
