@@ -67,7 +67,7 @@ export const Controls = memo(props => {
   return (
     <>
       <CameraContainer isActive={isActive}>
-        <Video ref={video} autoplay />
+        <Video ref={video} controls autoplay />
         <Canvas ref={canvas} width="100vw" height="100vh" />
         <StopButton>
           <ControlButton primary title={messages.stopBenchmark} onClick={handleStopButton} />
