@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { ROUTES } from '../../../routes';
 import messages from './header.messages';
 import { H1, H2 } from '../../../theme/typography';
+import { Navigation } from '../navigation';
 import { Container, HeaderContainer, NavigationContainer, NavigationBackIcon } from './header.styles';
 
 export const Header = props => {
@@ -35,12 +36,14 @@ export const Header = props => {
     <Container>
       <HeaderContainer>
         <Switch>
-          <Route path={ROUTES.benchmark} component={renderBenchmarkHeader} />
+          <Route path={ROUTES.benchmarkId} component={renderBenchmarkHeader} />
           <Route path={ROUTES.home} component={renderHomeHeader} />
           <Route exact path={ROUTES.base} component={renderHomeHeader} />
         </Switch>
       </HeaderContainer>
-      <NavigationContainer />
+      <NavigationContainer>
+        <Navigation />
+      </NavigationContainer>
     </Container>
   );
 };
