@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
 
 import App from './app.container';
-import { Home } from './home';
-import { Benchmark } from './benchmark';
-import { NotFound } from './notFound';
+import { PageContainer } from '../theme/global';
+import { Header } from '../shared/components/header';
+import { Content } from '../shared/components/content';
 
 export const ROUTES = {
-  home: '/',
+  base: '/',
+  home: '/home',
   notFound: '/404',
-  test: '/test',
+  benchmark: '/benchmark',
+  benchmarkId: '/benchmark/:id',
 };
 
 export default class RootContainer extends Component {
   render() {
     return (
       <App>
-        <Switch>
-          <Route exact path={ROUTES.home} component={Home} />
-          <Route path={ROUTES.test} component={Benchmark} />
-          <Route component={NotFound} />
-        </Switch>
+        <PageContainer>
+          <Header />
+          <Content />
+        </PageContainer>
       </App>
     );
   }
