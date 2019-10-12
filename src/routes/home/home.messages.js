@@ -8,6 +8,6 @@ export default defineMessages({
   },
   welcome: {
     id: 'home.welcome',
-    defaultMessage: 'Hello World!',
+    defaultMessage: 'react pwa benchmark',
   },
 });

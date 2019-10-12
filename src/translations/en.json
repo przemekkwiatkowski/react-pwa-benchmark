@@ -1,7 +1,7 @@
 {
   "app.pageTitle": "Apptension Boilerplate",
   "home.pageTitle": "Homepage",
-  "home.welcome": "Hello World!",
+  "home.welcome": "react pwa benchmark",
   "notFound.pageTitle": "Not found",
   "notFound.title": "Error: 404",
   "unsupported.pageTitle": "Unsupported Browser",

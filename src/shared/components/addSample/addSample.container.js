@@ -5,14 +5,22 @@ import { hot } from 'react-hot-loader';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'ramda';
 
-import { LanguageSwitcher } from './languageSwitcher.component';
-import { selectLocalesLanguage } from '../../../modules/locales/locales.selectors';
+import { selectIsActive } from '../../../modules/timeTracker/timeTracker.selectors';
+import { TimeTrackerActions } from '../../../modules/timeTracker/timeTracker.redux';
+
+import AddSample from './addSample.component';
 
 const mapStateToProps = createStructuredSelector({
-  language: selectLocalesLanguage,
+  isActive: selectIsActive,
 });
 
-export const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+export const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      addSample: TimeTrackerActions.addSample,
+    },
+    dispatch
+  );
 
 export default compose(
   hot(module),
@@ -21,4 +29,4 @@ export default compose(
     mapDispatchToProps
   ),
   withRouter
-)(LanguageSwitcher);
+)(AddSample);

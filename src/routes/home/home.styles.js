@@ -1,15 +1,21 @@
 import styled from 'styled-components';
-import { ReactComponent as LogoSVG } from '../../images/icons/logo.svg';
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
 `;
 
-export const Logo = styled(LogoSVG)`
-  width: 100px;
-  margin-bottom: 20px;
+export const BenchmarksContainer = styled.div`
+  width: 100%;
+  height: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  text-align: center;
 `;
