@@ -13,10 +13,7 @@ export const INITIAL_STATE = new Immutable({
   device: null,
 });
 
-const getDeviceType = state =>
-  state.merge({
-    device: navigator.userAgent,
-  });
+const getDeviceType = state => state.set('device', navigator.userAgent);
 
 export const reducer = createReducer(INITIAL_STATE, {
   [StartupTypes.GET_DEVICE]: getDeviceType,

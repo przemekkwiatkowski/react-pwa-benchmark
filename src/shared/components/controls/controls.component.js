@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import messages from './controls.messages';
@@ -19,20 +19,9 @@ export const Controls = memo(props => {
     }
   };
 
-  const getResult = () => {
-    return {
-      device: device,
-      startedAt: startedAt,
-      samples: samples,
-    };
-  };
-
-  const handleSaveButton = () => {
-    if (isActive) {
-      const result = getResult();
-      saveResult(benchmark, result);
-    }
-  };
+  const handleSaveButton = useCallback(() => {
+    saveResult(benchmark, { device, startedAt, samples });
+  }, [device, startedAt, samples, isActive]);
 
   return (
     <Container>

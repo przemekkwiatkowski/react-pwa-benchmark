@@ -32,7 +32,7 @@ const stop = state =>
     isActive: false,
   });
 
-const addSample = state => state.set('samples', [...state.samples, { savedAt: Date.now() }]);
+const addSample = state => state.set('samples', state.samples.concat([{ savedAt: Date.now() }]));
 
 const reset = () => INITIAL_STATE;
 

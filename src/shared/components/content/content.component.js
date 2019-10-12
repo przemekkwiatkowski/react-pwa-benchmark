@@ -13,7 +13,7 @@ export const Content = () => {
     <Container>
       <Switch>
         <Route exact path={ROUTES.base} component={BenchmarksContainer} />
-        <Route exact path={ROUTES.benchmarkId} render={props => renderControls(props)} />
+        <Route exact path={ROUTES.benchmarkId} render={renderControls} />
       </Switch>
     </Container>
   );

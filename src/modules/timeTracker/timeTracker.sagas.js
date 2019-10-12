@@ -4,8 +4,7 @@ import { getFirestore } from '../../shared/services/firestore';
 import reportError from '../../shared/utils/reportError';
 import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 
-export function* saveResult(payload) {
-  const { benchmarkId, result } = payload;
+export function* saveResult({ benchmarkId, result }) {
   try {
     yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();
