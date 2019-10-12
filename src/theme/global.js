@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { colors, fonts } from './styled';
 
 export const GlobalStyle = createGlobalStyle`
@@ -10,17 +10,26 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    width: 414px;
-    height: 736px;
+    width: 100vw;
+    height: 100vh;
     font-family: ${fonts.montserrat};
     font-size: 15px;
-    border: 1px solid ${colors.grey};
-    margin: 0 auto;
-    box-sizing: inherit;
-    padding: 20px;
+    background-color: ${colors.whiteSmoke};
     
-    div {
-      height: 100%;
-    }
+    #app {
+      width: inherit;
+      height: inherit;
+    } 
   }
+`;
+
+export const PageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  box-sizing: inherit;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 `;

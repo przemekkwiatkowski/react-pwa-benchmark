@@ -19,7 +19,9 @@ import { initializeFirestore } from './shared/services/firestore';
 if ('serviceWorker' in navigator) {
   runtime
     .register()
+    // eslint-disable-next-line
     .then(() => console.log('SW registered successfully.'))
+    // eslint-disable-next-line
     .catch(error => console.log('SW registration failed:', error));
 }
 
