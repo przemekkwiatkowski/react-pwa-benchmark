@@ -1,18 +1,27 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import messages from './controls.messages';
 import { ControlButton } from '../controlButton';
 import { Container, StartButton, SampleButton, SaveButton } from './controls.styles';
 
-export const Controls = memo(({ isActive, stop, start, saveResult }) => {
+export const Controls = memo(props => {
+  const { match, start, stop, addSample, saveResult, isActive, benchmark, startedAt, samples, device } = props;
   const buttonMessage = isActive ? messages.stopBenchmark : messages.startBenchmark;
 
   const handleStartButton = () => {
-    isActive ? stop() : start();
+    isActive ? stop() : start(match.params.id);
   };
 
-  const handleSaveButton = () => saveResult();
+  const handleAddSampleButton = () => {
+    if (isActive && startedAt) {
+      addSample();
+    }
+  };
+
+  const handleSaveButton = useCallback(() => {
+    saveResult(benchmark, { device, startedAt, samples });
+  }, [device, startedAt, samples, isActive]);
 
   return (
     <Container>
@@ -21,7 +30,7 @@ export const Controls = memo(({ isActive, stop, start, saveResult }) => {
       </StartButton>
       {isActive && (
         <SampleButton>
-          <ControlButton title={messages.addSample} />
+          <ControlButton title={messages.addSample} onClick={handleAddSampleButton} />
         </SampleButton>
       )}
       {isActive && (
@@ -34,8 +43,14 @@ export const Controls = memo(({ isActive, stop, start, saveResult }) => {
 });
 
 Controls.propTypes = {
+  match: PropTypes.object.isRequired,
   start: PropTypes.func.isRequired,
   stop: PropTypes.func.isRequired,
+  addSample: PropTypes.func.isRequired,
   saveResult: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,
+  benchmark: PropTypes.string,
+  startedAt: PropTypes.number,
+  samples: PropTypes.array,
+  device: PropTypes.string,
 };
