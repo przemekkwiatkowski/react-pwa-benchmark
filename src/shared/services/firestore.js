@@ -10,8 +10,13 @@ export const config = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   collectionName: process.env.REACT_APP_COLLECTION_NAME,
+  docName: process.env.REACT_APP_DOC_NAME,
 };
 
 export const initializeFirestore = () => firebase.initializeApp(config);
 
-export const getFirestore = () => firebase.firestore().collection(config.collectionName);
+export const getFirestore = () =>
+  firebase
+    .firestore()
+    .collection(config.collectionName)
+    .doc(config.docName);

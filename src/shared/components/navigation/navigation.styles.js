@@ -25,8 +25,7 @@ export const List = styled.ul`
   justify-content: flex-start;
   align-items: center;
   margin: 0;
-  overflow-x: auto;
-  padding: 0 30px;
+  padding-left: 30px;
 `;
 
 export const ListItem = styled.li`
@@ -37,6 +36,7 @@ export const ListItem = styled.li`
 
   &:last-of-type {
     margin-right: 0;
+    padding-right: 30px;
   }
 `;
 
