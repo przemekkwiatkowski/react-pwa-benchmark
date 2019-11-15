@@ -18,6 +18,11 @@ export const selectStartedAt = createSelector(
   prop('startedAt')
 );
 
+export const selectEndedAt = createSelector(
+  selectTimeTrackerDomain,
+  prop('endedAt')
+);
+
 export const selectSamples = createSelector(
   selectTimeTrackerDomain,
   prop('samples')

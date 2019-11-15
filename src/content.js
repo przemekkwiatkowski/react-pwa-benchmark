@@ -47,25 +47,10 @@ export const navigation = {
 
 export const benchmarks = [
   {
-    name: 'Camera',
-    url: '/camera',
-    id: 'camera',
-    image: 'camera',
-    instruction: [
-      'Lorem ipsum dolor sit amet',
-      'consectetur adipiscing elit',
-      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'Ut enim ad minim veniam',
-    ],
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    samples: 100,
-  },
-  {
-    name: 'Battery',
-    url: '/battery',
-    id: 'battery',
-    image: 'battery',
+    name: 'Rendering',
+    url: '/rendering',
+    id: 'rendering',
+    image: 'rendering',
     instruction: [
       'Lorem ipsum dolor sit amet',
       'consectetur adipiscing elit',
@@ -77,10 +62,10 @@ export const benchmarks = [
     samples: 1,
   },
   {
-    name: 'Rendering',
-    url: '/rendering',
-    id: 'rendering',
-    image: 'rendering',
+    name: 'Battery',
+    url: '/battery',
+    id: 'battery',
+    image: 'battery',
     instruction: [
       'Lorem ipsum dolor sit amet',
       'consectetur adipiscing elit',

@@ -5,13 +5,16 @@ import reportError from '../../shared/utils/reportError';
 import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 
 export function* saveResult({ benchmarkId, result }) {
+  const endedAt = Date.now();
   try {
     yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();
-    yield db.collection(benchmarkId).add(result);
+    yield db.collection(benchmarkId).add({ ...result, endedAt: endedAt });
     yield put(TimeTrackerActions.reset());
+    alert(`${benchmarkId} test executed sucessfully`);
   } catch (error) {
     reportError(error);
+    alert(`${benchmarkId} test error: ${error}`);
   }
 }
 

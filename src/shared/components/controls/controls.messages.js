@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   startBenchmark: {
     id: 'benchmark.startBenchmark',
-    defaultMessage: 'Start',
+    defaultMessage: 'Start test',
   },
 
   stopBenchmark: {
