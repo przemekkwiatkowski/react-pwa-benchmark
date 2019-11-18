@@ -6,7 +6,7 @@ import { ControlButton } from '../controlButton';
 import messages from './renderingTest.messages';
 import Image from '../../../images/rendering-test-image.jpeg';
 
-const ELEMENTS_MAX_NUMBER = 10;
+const ELEMENTS_MAX_NUMBER = 10000;
 const ELEMENTS_STEP_NUMBER = 500;
 const ELEMENTS_ROW_NUMBER = 5;
 
@@ -57,7 +57,7 @@ export const RenderingTest = memo(({ stop, saveResult, addSample }) => {
     const multipliedElements = elementsAmount * ELEMENTS_ROW_NUMBER;
 
     if (multipliedElements && multipliedElements % ELEMENTS_STEP_NUMBER === 0) {
-      addSample(multipliedElements);
+      addSample(String(multipliedElements));
     }
 
     if (multipliedElements === ELEMENTS_MAX_NUMBER) {
