@@ -5,6 +5,7 @@ import messages from './controls.messages';
 import { ControlButton } from '../controlButton';
 import { Container, StartButton } from './controls.styles';
 import { BatteryTest } from '../batteryTest';
+import { RenderingTest } from '../renderingTest';
 import { renderWhenTrue } from '../../utils/rendering';
 
 export const Controls = memo(props => {
@@ -27,12 +28,17 @@ export const Controls = memo(props => {
     return <BatteryTest stop={stop} saveResult={handleSaveResult} addSample={addSample} />;
   });
 
+  const renderRenderingTest = renderWhenTrue(() => {
+    return <RenderingTest stop={stop} saveResult={handleSaveResult} addSample={addSample} />;
+  });
+
   return (
     <Container>
       <StartButton>
         <ControlButton title={buttonMessage} primary onClick={handleStartButton} />
       </StartButton>
       {renderBatteryTest(isActive && match.params.id === 'battery')}
+      {renderRenderingTest(isActive && match.params.id === 'rendering')}
     </Container>
   );
 });
