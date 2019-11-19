@@ -1,4 +1,5 @@
 import React, { memo, useState, useEffect, useRef } from 'react';
+import { useKeepAwake } from 'expo-keep-awake';
 import PropTypes from 'prop-types';
 
 import { Container, StopButton, SaveResultButton, InfoBox, Number, RenderContainer, Row } from './renderingTest.styles';
@@ -14,6 +15,7 @@ export const RenderingTest = memo(({ stop, saveResult, addSample }) => {
   const [elementsAmount, setElementsAmount] = useState(0);
   let interval = null;
   const scrollContainer = useRef(null);
+  useKeepAwake();
 
   const handleStopButton = () => stop();
   const handleSaveResult = () => saveResult();
