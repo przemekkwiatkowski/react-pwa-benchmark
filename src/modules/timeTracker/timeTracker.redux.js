@@ -37,7 +37,7 @@ const stop = state =>
   });
 
 const addSample = (state, desc) => {
-  return state.set('samples', state.samples.concat([{ savedAt: Date.now(), desc: desc }]));
+  return state.set('samples', state.samples.concat([{ saved: performance.now(), desc: desc }]));
 };
 
 const reset = () => INITIAL_STATE;

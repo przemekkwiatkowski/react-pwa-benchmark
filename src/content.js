@@ -77,10 +77,10 @@ export const benchmarks = [
     samples: 1,
   },
   {
-    name: 'Animations',
-    url: '/animations',
-    id: 'animations',
-    image: 'animations',
+    name: 'Geolocation',
+    url: '/geolocation',
+    id: 'geolocation',
+    image: 'geolocation',
     instruction: [
       'Lorem ipsum dolor sit amet',
       'consectetur adipiscing elit',

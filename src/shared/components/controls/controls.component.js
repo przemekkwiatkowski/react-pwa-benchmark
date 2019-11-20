@@ -6,6 +6,7 @@ import { ControlButton } from '../controlButton';
 import { Container, StartButton } from './controls.styles';
 import { BatteryTest } from '../batteryTest';
 import { RenderingTest } from '../renderingTest';
+import { ResponsivenessTest } from '../responsivenessTest';
 import { renderWhenTrue } from '../../utils/rendering';
 
 export const Controls = memo(props => {
@@ -32,6 +33,10 @@ export const Controls = memo(props => {
     return <RenderingTest stop={stop} saveResult={handleSaveResult} addSample={addSample} />;
   });
 
+  const renderResponsivenessTest = renderWhenTrue(() => {
+    return <ResponsivenessTest stop={stop} saveResult={handleSaveResult} addSample={addSample} />;
+  });
+
   return (
     <Container>
       <StartButton>
@@ -39,6 +44,7 @@ export const Controls = memo(props => {
       </StartButton>
       {renderBatteryTest(isActive && match.params.id === 'battery')}
       {renderRenderingTest(isActive && match.params.id === 'rendering')}
+      {renderResponsivenessTest(isActive && match.params.id === 'geolocation')}
     </Container>
   );
 });
