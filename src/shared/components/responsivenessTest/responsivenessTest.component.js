@@ -15,8 +15,6 @@ import {
 import { ControlButton } from '../controlButton';
 import messages from './resposivenessTest.messages';
 
-const MAX_GETS = 10;
-
 export const ResponsivenessTest = memo(({ stop, saveResult, addSample }) => {
   const clickerRef = useRef(null);
   const cordsRef = useRef(null);
@@ -35,14 +33,14 @@ export const ResponsivenessTest = memo(({ stop, saveResult, addSample }) => {
   useKeepAwake();
 
   const options = {
-    enableHighAccuracy: true,
-    maximumAge: 0,
+    // enableHighAccuracy: true,
+    // maximumAge: 0,
   };
 
   const success = position => {
     const coords = position.coords;
     const { latitude, longitude, accuracy } = coords;
-    endTime = performance.now();
+    endTime = Date.now();
     const timeConsumed = (endTime - startTime) / 1000;
     setTime(timeConsumed);
     setLatitude(latitude);
@@ -54,7 +52,7 @@ export const ResponsivenessTest = memo(({ stop, saveResult, addSample }) => {
     }
     addSample(`time: ${timeConsumed} accuracy: ${accuracy} online: ${connection}`);
     setNumberOfSuccessGets(numberOfSuccessGets => numberOfSuccessGets + 1);
-    id = navigator.geolocation.clearWatch(id);
+    navigator.geolocation.clearWatch(id);
   };
 
   const error = error => {
@@ -65,7 +63,7 @@ export const ResponsivenessTest = memo(({ stop, saveResult, addSample }) => {
 
   const handleOnClick = () => {
     isDisabled(true);
-    startTime = performance.now();
+    startTime = Date.now();
     if (clickerRef.current) {
       cordsRef.current.classList.add('disabled');
       clickerRef.current.classList.add('active');

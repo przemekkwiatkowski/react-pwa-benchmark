@@ -54,7 +54,7 @@ export const RenderContainer = styled.div`
 export const Row = styled.div`
   display: flex;
   width: 100%;
-  height: 10%;
+  height: 80px;
   justify-content: space-between;
   align-items: center;
 

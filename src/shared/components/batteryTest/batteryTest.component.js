@@ -13,7 +13,6 @@ const BATTERY_END_LEVEL = 9;
 export const BatteryTest = memo(({ stop, saveResult, addSample }) => {
   const [isCharging, setIsCharging] = useState(false);
   const [batteryStatus, setBatteryStatus] = useState(0);
-  const [countingStarted, setCountingStarted] = useState(false);
   let deviceBattery = null;
   useKeepAwake();
 
@@ -46,12 +45,13 @@ export const BatteryTest = memo(({ stop, saveResult, addSample }) => {
         deviceBattery.removeEventListener('levelchange', handleLevelChange);
       }
     };
-  });
+  }, []);
 
   useEffect(() => {
     if (batteryStatus === BATTERY_START_LEVEL) {
       addSample(`start, ${BATTERY_START_LEVEL}%`);
     } else if (batteryStatus === BATTERY_END_LEVEL) {
+      addSample(`end, ${BATTERY_START_LEVEL}%`);
       saveResult();
     } else if (batteryStatus < BATTERY_START_LEVEL && batteryStatus > BATTERY_END_LEVEL) {
       addSample(batteryStatus);
@@ -73,7 +73,6 @@ export const BatteryTest = memo(({ stop, saveResult, addSample }) => {
       <InfoBox>
         <p>charging: {isCharging ? 'true' : 'false'}</p>
         <p>battery level: {batteryStatus}%</p>
-        <p>started counting: {countingStarted ? 'true' : 'false'}</p>
       </InfoBox>
     </Container>
   );

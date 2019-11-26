@@ -7,8 +7,9 @@ import { ControlButton } from '../controlButton';
 import messages from './renderingTest.messages';
 import Image from '../../../images/rendering-test-image.jpeg';
 
-const ELEMENTS_MAX_NUMBER = 10000;
-const ELEMENTS_STEP_NUMBER = 500;
+const DELAY_TIME = 100;
+const ELEMENTS_MAX_NUMBER = 2000;
+const ELEMENTS_STEP_NUMBER = 200;
 const ELEMENTS_ROW_NUMBER = 5;
 
 export const RenderingTest = memo(({ stop, saveResult, addSample }) => {
@@ -39,7 +40,7 @@ export const RenderingTest = memo(({ stop, saveResult, addSample }) => {
   useEffect(() => {
     interval = setInterval(() => {
       setElementsAmount(elementsAmount => elementsAmount + 1);
-    }, 10);
+    }, DELAY_TIME);
 
     return () => {
       clearInterval(interval);

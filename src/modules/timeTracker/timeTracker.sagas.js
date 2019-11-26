@@ -5,7 +5,7 @@ import reportError from '../../shared/utils/reportError';
 import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 
 export function* saveResult({ benchmarkId, result }) {
-  const endedAt = performance.now();
+  const endedAt = Date.now();
   try {
     yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();

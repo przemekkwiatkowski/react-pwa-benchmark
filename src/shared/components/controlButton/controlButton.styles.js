@@ -15,9 +15,8 @@ const secondary = css`
 `;
 
 export const Button = styled.button`
-  padding: 20px 30px;
+  padding: 5px 15px;
   border-radius: 30px;
-  min-width: 200px;
   font-size: 0.8rem;
   text-transform: uppercase;
   outline: none;
