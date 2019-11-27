@@ -8,7 +8,7 @@ import { ControlButton } from '../controlButton';
 import video from '../../../videos/battery-test-video.mp4';
 
 const BATTERY_START_LEVEL = 99;
-const BATTERY_END_LEVEL = 9;
+const BATTERY_END_LEVEL = 49;
 
 export const BatteryTest = memo(({ stop, saveResult, addSample }) => {
   const [isCharging, setIsCharging] = useState(false);
