@@ -6,7 +6,6 @@ import { TimeTrackerTypes, TimeTrackerActions } from './timeTracker.redux';
 
 export function* saveResult({ benchmarkId, result }) {
   const endedAt = Date.now();
-  console.log(benchmarkId, result);
   try {
     yield put(TimeTrackerActions.stop());
     const db = yield getFirestore();
